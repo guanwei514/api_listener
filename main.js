@@ -15,13 +15,15 @@ const SendResponse = (returnData, statusCode, response) => {
 const server = http.createServer((req, res) => {
   const url = req.url;
   const method = req.method;
+  const header = req.headers;
   let date_ob = new Date();
   let body = "";
   console.log("----");
   console.log(`Time: ${date_ob}`);
   console.log(`URL: ${url}`);
   console.log(`Method: ${method}`);
-
+  console.log(`Header:`);
+  console.log(header);
   if (method == "POST" || method == "PUT") {
     req.on("data", function (data) {
       body += data;
